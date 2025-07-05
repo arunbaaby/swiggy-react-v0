@@ -1,9 +1,17 @@
+import { useDispatch } from "react-redux";
 import { RES_ITEM_URL } from "../../utils/constants";
+import { addItem } from "../../utils/cartSlice";
 
 const ResCategoryInfo = ({ data, dummy }) => {
     //console.log('res cat info', data);
     console.log(dummy);// data is passed from the parent to the children...this is called props drilling    
     const { name, price, description, imageId, defaultPrice, ratings } = data.card.info;
+
+    const dispatch = useDispatch();
+
+    const handleAddCartItem = ()=>{
+        dispatch(addItem('pizza'));
+    }
 
     return (
         <div className="">
@@ -16,7 +24,7 @@ const ResCategoryInfo = ({ data, dummy }) => {
                 </div>
                 <div className="relative w-[156px] h-[160px] justify-self-end">
                     <img className="rounded-xl w-full h-[144px] object-cover" src={RES_ITEM_URL+imageId} alt="" />
-                    <button className="absolute bottom-0 left-4 right-4 p-2 z-10 bg-white text-[rgb(27,166,114)] text-lg font-bold rounded-lg shadow-md">ADD</button>
+                    <button className="absolute bottom-0 left-4 right-4 p-2 z-10 bg-white text-[rgb(27,166,114)] text-lg font-bold rounded-lg shadow-md" onClick={handleAddCartItem}>ADD</button>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import useOnlineStatus from '../../hooks/useOnlineStatus';
 import UserContext from '../../utils/UserContext';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     const [btnNameReact,setBtnNameReact] = useState('Login');
@@ -27,6 +28,8 @@ const Navbar = () => {
     const onlineStatus = useOnlineStatus();
     const {loggedInUser} = useContext(UserContext);
 
+    const cartItems = useSelector((store)=>store.cart.items);
+
     const linkClass = "text-xl font-semibold no-underline hover:text-[var(--primary-color)] list-none";
     return (
         <nav className="navbar">
@@ -39,7 +42,7 @@ const Navbar = () => {
                     <li><Link className={linkClass} to={'/'}>Home</Link></li>
                     <li><Link className={linkClass} to={'/about'}>About Us</Link></li>
                     <li><Link className={linkClass} to={'/contact'}>Contact Us</Link></li>
-                    <li><Link className={linkClass} to={'/cart'}>Cart</Link></li>
+                    <li><Link className={linkClass} to={'/cart'}>Cart - {cartItems.length} </Link></li>
                     <li><Link className={linkClass} to={'/grocery'}>Grocery</Link></li>
                     <li className={linkClass}>Online Status: {onlineStatus?'✅':'❌'}</li>
                 </ul>

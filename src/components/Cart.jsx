@@ -1,8 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../../utils/cartSlice";
 
 const Cart = () => {
 
     const cartItems = useSelector((store) => store.cart.items);
+
+    const dispatch = useDispatch();
+
+    const handleClearCart = ()=>{
+        dispatch(clearCart());
+    }
 
     return (
         <div className="grid grid-cols-3 gap-7 mx-4">
@@ -16,6 +23,9 @@ const Cart = () => {
                         <div>{item.defaultPrice || item.price}</div>
                     </div>
                 ))}
+            </div>
+            <div>
+                <button className="p-2 text-whitetext-black border rounded-[4px] px-[12px] hover:text-[#FF5200] hover:border-[#FF5200] hover:scale-110 transition-transform duration-300" onClick={handleClearCart}>Clear Cart 🗑</button>
             </div>
         </div>
     )

@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, removeItem } from "../../utils/cartSlice";
 
-const Cart = () => {
+const Cart = ()=>{
 
-    const cartItems = useSelector((store) => store.cart.items);
-
+<<<<<<< HEAD
     const dispatch = useDispatch();
 
     const handleClearCart = () => {
@@ -38,6 +37,13 @@ const Cart = () => {
                         <button className="p-2 text-whitetext-black border rounded-[4px] px-[12px] hover:text-[#FF5200] hover:border-[#FF5200] hover:scale-110 transition-transform duration-300" onClick={handleRemoveItemCart}>Remove Item ⛔</button>
                     </div>
                 </div>}
+=======
+    const cartItems = useSelector((store)=>store.cart.items);
+    return (
+        <div className="cart-wrapper flex flex-col">
+            <h1 className="text-3xl font-bold">Cart</h1>
+            <h1 className="text-2xl">{cartItems}</h1>
+>>>>>>> parent of e09bb05 (Cart page suscription)
         </div>
     )
 }

@@ -9,8 +9,8 @@ const ResCategoryInfo = ({ data, dummy }) => {
 
     const dispatch = useDispatch();
 
-    const handleAddCartItem = (item)=>{
-        dispatch(addItem(item));
+    const handleAddCartItem = ()=>{
+        dispatch(addItem('pizza'));
     }
 
     return (
@@ -24,7 +24,7 @@ const ResCategoryInfo = ({ data, dummy }) => {
                 </div>
                 <div className="relative w-[156px] h-[160px] justify-self-end">
                     <img className="rounded-xl w-full h-[144px] object-cover" src={RES_ITEM_URL+imageId} alt="" />
-                    <button className="absolute bottom-0 left-4 right-4 p-2 z-10 bg-white text-[rgb(27,166,114)] text-lg font-bold rounded-lg shadow-md" onClick={()=>handleAddCartItem(data.card.info)}>ADD</button>
+                    <button className="absolute bottom-0 left-4 right-4 p-2 z-10 bg-white text-[rgb(27,166,114)] text-lg font-bold rounded-lg shadow-md" onClick={handleAddCartItem}>ADD</button>
                 </div>
             </div>
         </div>

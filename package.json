@@ -37,6 +37,7 @@
     "globals": "^16.2.0",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
+    "util": "^0.12.5",
     "vite": "^7.0.0"
   }
 }

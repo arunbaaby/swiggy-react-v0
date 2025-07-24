@@ -195,6 +195,13 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
+  },
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
+  moduleFileExtensions: ['js', 'jsx', 'json'],
+  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+
 };
 
 export default config;

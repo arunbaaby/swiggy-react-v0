@@ -8,7 +8,7 @@ export const RestaurantCard = (props) => {
     const {loggedInUser} = useContext(UserContext);
     
     return (
-        <div className="res-card-container w-[282px] h-[282px] overflow-hidden transition-transform duration-200 ease-in-out hover:scale-95">
+        <div data-testid="rest-card" className="res-card-container w-[282px] h-[282px] overflow-hidden transition-transform duration-200 ease-in-out hover:scale-95">
             <div className="res-card-image w-full h-[182px] relative">
                 {promoted && (
                 <label className='absolute z-10 bg-gray-900 text-amber-50 rounded py-1 px-2 text-xs mt-2 ml-2'>

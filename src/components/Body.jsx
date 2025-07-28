@@ -62,7 +62,7 @@ const Body = () => {
         <main className="body">
             <div className="top-rated-filter my-8 flex gap-16">
                 <div className="search flex justify-between gap-4">
-                    <input type="text" className="search-box p-3 w-[300px] bg-[#F0F0F5] rounded-[8px] text-gray-600 text-xl font-semibold" placeholder="Search Restaurants" value={searchText} onChange={
+                    <input type="text" data-testid="search-input" className="search-box p-3 w-[300px] bg-[#F0F0F5] rounded-[8px] text-gray-600 text-xl font-semibold" placeholder="Search Restaurants" value={searchText} onChange={
                         (e) => {
                             setSearchText(e.target.value);
                         }

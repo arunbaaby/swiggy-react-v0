@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, act } from '@testing-library/react';
+import { render, act, screen, fireEvent } from '@testing-library/react';
 import Body from '../Body';
 import MOCK_DATA from '../mocks/mockResListData.json';
 import { BrowserRouter } from 'react-router-dom';
@@ -17,7 +17,20 @@ global.fetch = jest.fn(() => {
 
 it("Should render the body with search", async () => {
     await act(async () => render(
-    <BrowserRouter>
-        <Body />
-    </BrowserRouter>))
+        <BrowserRouter>
+            <Body />
+        </BrowserRouter>
+    ));
+
+    const searchInput = screen.getByTestId('search-input');
+
+    const searchBtn = screen.getByRole('button', { name: 'Search' });
+
+    fireEvent.change(searchInput, { target: { value: 'Burger' } });
+
+    fireEvent.click(searchBtn);
+
+    const cards = screen.getAllByTestId('rest-card');
+
+    expect(cards.length).toBe(1)
 })

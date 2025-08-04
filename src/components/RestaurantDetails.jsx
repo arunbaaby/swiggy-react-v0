@@ -1,3 +1,4 @@
+//RestaurantDetails.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RES_IMG_URL, RES_MENU_API } from "../../utils/constants";

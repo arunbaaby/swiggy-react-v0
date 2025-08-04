@@ -1,3 +1,4 @@
+//RescategoryInfo.jsx
 import { useDispatch } from "react-redux";
 import { RES_ITEM_URL } from "../../utils/constants";
 import { addItem } from "../../utils/cartSlice";

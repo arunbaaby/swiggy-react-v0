@@ -1,3 +1,4 @@
+// ResCategory.jsx
 import { useState } from "react";
 import ResCategoryInfo from "./ResCategoryInfo";
 
@@ -7,7 +8,7 @@ const ResCategory = ({ data, selected, onClickToSetIndex, dummy }) => {
     const { title, itemCards, categoryId } = data;
 
     return (
-        <div className="my-8">
+        <div className="my-8" data-testid="menu-item">
             {/** you are not calling the funtion onClick, just passing the reference 
              * ,...it is called when you click the element */}
             <div className="flex justify-between cursor-pointer" onClick={onClickToSetIndex}>
@@ -18,8 +19,8 @@ const ResCategory = ({ data, selected, onClickToSetIndex, dummy }) => {
             <div className="">
                 {
                     selected &&
-                    itemCards.map((item) => {
-                        return <ResCategoryInfo data={item} index={categoryId} dummy={dummy} />
+                    itemCards.map((item, index) => {
+                        return <ResCategoryInfo key={index} data={item} index={categoryId} dummy={dummy} />
                     })
                 }
             </div>

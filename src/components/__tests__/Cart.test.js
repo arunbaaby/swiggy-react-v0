@@ -25,6 +25,9 @@ it("Should load res menu", async()=>{
 
     const menuItems = screen.getAllByTestId('menu-item');
 
+    console.log(menuItems.length);
+    
+
     expect(menuItems.length).toBe(12);
 
 })
